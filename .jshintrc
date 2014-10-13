@@ -1,0 +1,38 @@
+{
+
+	"predef": [
+		"before",
+		"after",
+		"it",
+		"describe",
+		"beforeEach",
+		"afterEach"
+	],
+
+	"node": true,
+	"devel": false,
+
+	"camelcase": true,
+	"curly": false,
+	"eqeqeq": true,
+	"forin": true,
+	"immed": true,
+	"latedef": true,
+	"newcap": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": false,
+	"undef": true,
+	"unused": "vars",
+	"strict": false,
+	"trailing": true,
+	"maxparams": 13,
+	"maxdepth": 7,
+	"maxstatements": 42,
+	"maxcomplexity": 11,
+	"maxlen": 140,
+
+	"boss": true,
+	"globalstrict": true
+
+}

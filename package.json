@@ -1,0 +1,19 @@
+{
+  "name": "benchmarksman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "benchmarksman": "main.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "benchmarks": "benchmarksman bench/"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "benchmark": "^1.0.0",
+    "microtime": "^1.0.1"
+  }
+}
