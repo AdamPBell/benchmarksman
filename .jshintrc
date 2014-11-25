@@ -1,17 +1,5 @@
 {
 
-	"predef": [
-		"before",
-		"after",
-		"it",
-		"describe",
-		"beforeEach",
-		"afterEach"
-	],
-
-	"node": true,
-	"devel": false,
-
 	"camelcase": true,
 	"curly": false,
 	"eqeqeq": true,
@@ -19,20 +7,26 @@
 	"immed": true,
 	"latedef": true,
 	"newcap": true,
+	"noarg": true,
 	"noempty": true,
+	"nonbsp": true,
 	"nonew": true,
-	"quotmark": false,
+	"quotmark": true,
 	"undef": true,
 	"unused": "vars",
 	"strict": false,
 	"trailing": true,
-	"maxparams": 13,
+	"maxparams": 11,
 	"maxdepth": 7,
 	"maxstatements": 42,
-	"maxcomplexity": 11,
+	"maxcomplexity": 13,
 	"maxlen": 140,
 
 	"boss": true,
-	"globalstrict": true
+	"expr": true,
+	"globalstrict": true,
+
+	"node": true,
+	"devel": false
 
 }
