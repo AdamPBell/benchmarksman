@@ -4,6 +4,8 @@ var lib = require("./lib/"),
 
 /**
  * Main command handler if this is run directly
+ * @namespace benchmarksman
+ * @method main
  */
 module.exports = function main() {
 	var pkg = require("./package.json"),
