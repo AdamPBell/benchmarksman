@@ -11,7 +11,7 @@ var getAlphabetObj = function(val) {
 	},
 	obj = getAlphabetObj(getAlphabetObj(getAlphabetObj(1))),
 	str = JSON.stringify(obj),
-	buf = new Buffer(JSON.stringify(str));
+	buf = new Buffer(str);
 
 
 // tests
