@@ -10,7 +10,7 @@ benchmarks as easy as writing test cases (using the
 Why
 ===
 
-Using [benchmark.js][benchmark] directly can be a little annoying if you just
+Using [benchmark.js][benchmark] directly can be a little tedious if you just
 want it to log ops/sec for a bunch of different code snippets.
 
 
@@ -27,19 +27,26 @@ benchmarksman bench/array.js
 Programmatic
 ------------
 ```javascript
-exports.Maths = {
-	"multiply": function(){
-		return 2 + 2;
+exports.Date = {
+	"#getTime()": function(){
+		new Date().getTime();
 	},
-	"divide": function(){
-		return 42 / 11;
+	".now()": function(){
+		Date.now();
 	}
 };
 if (!module.main) require("benchmarksman").runner(exports);
 ```
 
-Results
--------
+Output
+------
+```console
+Date #getTime() x 7,705,532 ops/sec ±2.95% (94 runs sampled)
+Date .now() x 15,132,312 ops/sec ±1.85% (94 runs sampled)
+```
+
+
+
 
 
 [benchmark]: http://benchmarkjs.com
