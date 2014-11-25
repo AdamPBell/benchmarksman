@@ -2,13 +2,13 @@
   "name": "benchmarksman",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "benchmarksman.js",
   "bin": {
-    "benchmarksman": "main.js"
+    "benchmarksman": "benchmarksman.js"
   },
   "scripts": {
-    "test": "mocha",
-    "benchmarks": "benchmarksman bench/"
+    "test": "mocha test/{,**/}*_test.js",
+    "benchmarks": "./benchmarksman.js example/*.js"
   },
   "author": "",
   "license": "MIT",

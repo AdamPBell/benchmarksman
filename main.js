@@ -1,7 +1,5 @@
-#!/usr/bin/env node
 "use strict";
-
-var lib = require("./lib"),
+var lib = require("./lib/"),
 	runner = lib.runner;
 
 /**
