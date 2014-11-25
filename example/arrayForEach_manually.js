@@ -4,8 +4,8 @@ var benchmark = require("benchmark");
 
 
 // setup
-var noop = function(){},
-	arr = new Array(1000).map(function (v, i) {
+var noop = function() {},
+	arr = new Array(1000).map(function(v, i) {
 		return i;
 	});
 
@@ -13,7 +13,7 @@ var noop = function(){},
 // tests
 console.log(
 	String(
-		benchmark("forEach", function(){
+		benchmark("forEach", function() {
 			arr.forEach(noop);
 		})
 		.run()
@@ -21,12 +21,11 @@ console.log(
 );
 console.log(
 	String(
-		benchmark("for", function(){
-			for(var i = 0, l = arr.length; i < l; i++){
+		benchmark("for", function() {
+			for (var i = 0, l = arr.length; i < l; i++) {
 				noop(arr[i]);
 			}
 		})
 		.run()
 	)
 );
-

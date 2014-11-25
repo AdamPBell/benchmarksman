@@ -3,8 +3,8 @@
 
 
 // setup
-var getAlphabetObj = function (val) {
-		return "abcdefghijklmnopqrstuvwxyz".split("").reduce(function (r, k, i) {
+var getAlphabetObj = function(val) {
+		return "abcdefghijklmnopqrstuvwxyz".split("").reduce(function(r, k, i) {
 			r[k] = val instanceof Function ? val(k, i, r) : val;
 			return r;
 		}, {});
@@ -15,22 +15,18 @@ var getAlphabetObj = function (val) {
 
 
 // tests
-exports.JSON = {
+exports.jsonParse = {
 
-	".parse()": {
+	"a String": function() {
+		JSON.parse(str);
+	},
 
-		"a String": function(){
-			JSON.parse(str);
-		},
-
-		"a Buffer": function(){
-			JSON.parse(buf);
-		}
-
-	}
+	"a Buffer": function() {
+		JSON.parse(buf);
+	},
 
 };
 
 
 // if run directly run benchmarks
-if(!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) return require("benchmarksman").runner(exports);

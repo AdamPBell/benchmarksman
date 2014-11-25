@@ -3,14 +3,14 @@
 
 
 // setup
-var noop = function(){},
-	arr = new Array(1000).map(function (v, i) {
+var noop = function() {},
+	arr = new Array(1000).map(function(v, i) {
 		return i;
 	});
 
 
 // tests
-exports.Array = {
+exports.arrayForEach = {
 
 	"for": function() {
 		for (var i = 0, l = arr.length; i < l; i++) {

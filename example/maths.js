@@ -2,13 +2,13 @@
 
 exports.Maths = {
 
-	"multiply": function(){
+	"multiply": function() {
 		return 2 + 2;
 	},
 
-	"divide": function(){
+	"divide": function() {
 		return 42 / 11;
-	}
+	},
 
 };
 
