@@ -6,7 +6,7 @@
 exports.arrayClear = {
 
 	beforeEach: function() {
-		this.arr = new Array(1000).map(function(v, i) {
+		this.arr = Array.apply(0, new Array(1000)).map(function(v, i) {
 			return i;
 		});
 	},

@@ -4,7 +4,7 @@
 
 // setup
 var noop = function() {},
-	arr = new Array(1000).map(function(v, i) {
+	arr = Array.apply(0, new Array(1000)).map(function(v, i) {
 		return i;
 	});
 
