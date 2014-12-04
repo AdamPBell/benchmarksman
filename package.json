@@ -8,12 +8,16 @@
   },
   "scripts": {
     "test": "mocha test/{,**/}*_test.js",
-    "benchmarks": "./benchmarksman.js example/*.js"
+    "benchmarks": "./benchmarksman.js example/*.js",
+    "browserify": "browserify --standalone benchmarksman ./lib/index.js > benchmarksman.web.js",
+    "webpack": "webpack -v -c --progress -d --output-library-target var --output-library benchmarksman --entry=./lib/ benchmarksman.web.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "benchmark": "^1.0.0",
+    "benchmark": "^1.0.0"
+  },
+  "devDependencies": {
     "microtime": "^1.0.1",
     "mocha": "^1.21.5"
   }
