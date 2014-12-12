@@ -12,13 +12,13 @@ var noop = function() {},
 // tests
 exports.arrayForEach = {
 
-	"for": function() {
+	"for loop": function() {
 		for (var i = 0, l = arr.length; i < l; i++) {
 			noop(arr[i]);
 		}
 	},
 
-	"forEach": function() {
+	"forEach loop": function() {
 		arr.forEach(noop);
 	},
 
@@ -26,4 +26,4 @@ exports.arrayForEach = {
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

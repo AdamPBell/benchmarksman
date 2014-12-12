@@ -3,15 +3,18 @@
 
 
 // tests
-exports.Date = {
-	"#getTime()": function(){
+exports.dateGetTime = {
+
+	"#getTime()": function() {
 		new Date().getTime();
 	},
-	".now()": function(){
+
+	".now()": function() {
 		Date.now();
-	}
+	},
+
 };
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

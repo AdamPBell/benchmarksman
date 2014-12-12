@@ -11,23 +11,23 @@ var name = "things",
 // tests
 exports.knownSetHas = {
 
-	"array indexOf closure": function() {
+	"array indexOf, ref": function() {
 		return arr.indexOf(name) !== -1;
 	},
 
-	"array indexOf inline": function() {
+	"array indexOf, inline": function() {
 		return ["foo", "bar", "baz", "qux", "stuff", "things"].indexOf(name) !== -1;
 	},
 
-	"object in closure": function() {
+	"object in, closure": function() {
 		return name in obj;
 	},
 
-	"object in inline": function() {
+	"object in, inline": function() {
 		return name in {foo:"foo", bar:"bar", baz:"baz", qux:"qux", stuff:"stuff", things:"things"};
 	},
 
-	"switch": function() {
+	"switch, inline": function() {
 		switch (name) {
 			case "foo":
 			case "bar":
@@ -41,7 +41,7 @@ exports.knownSetHas = {
 		}
 	},
 
-	"if": function() {
+	"if, inline": function() {
 		return name === "foo" ||
 			name === "bar" ||
 			name === "baz" ||
@@ -54,4 +54,4 @@ exports.knownSetHas = {
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

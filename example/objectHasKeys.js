@@ -6,8 +6,9 @@
 var obj = {foo:"foo", bar:"bar", baz:"baz", qux:"qux", stuff:"stuff", things:"things"};
 
 function hasFirstKey(o) {
-	for (var k in o) //jshint ignore:line
+	for (var k in o) { //jshint ignore:line
 		return true;
+	}
 	return false;
 }
 
@@ -31,15 +32,17 @@ exports.objectHasKeys = {
 	},
 
 	"inline: for k in obj, if hasOwnProperty, return": function() {
-		for (var k in obj) //jshint ignore:line
+		for (var k in obj) {
 			if (obj.hasOwnProperty(k))
 				return true;
+		}
 		return false;
 	},
 
 	"inline: for k in obj, return": function() {
-		for (var k in obj) //jshint ignore:line
+		for (var k in obj) { //jshint ignore:line
 			return true;
+		}
 		return false;
 	},
 
@@ -51,4 +54,4 @@ exports.objectHasKeys = {
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

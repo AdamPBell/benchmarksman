@@ -29,4 +29,4 @@ exports.jsonParse = {
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

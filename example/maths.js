@@ -1,12 +1,12 @@
 "use strict";
 
-exports.Maths = {
+exports.maths = {
 
-	"multiply": function() {
+	"native multiply": function() {
 		return 2 + 2;
 	},
 
-	"divide": function() {
+	"native divide": function() {
 		return 42 / 11;
 	},
 

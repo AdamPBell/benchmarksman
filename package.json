@@ -7,7 +7,10 @@
     "benchmarksman": "benchmarksman.js"
   },
   "scripts": {
-    "test": "mocha test/{,**/}*_test.js",
+    "test": "eval 'set -e' ';npm run '{mocha,jscs,jshint}",
+    "mocha": "mocha test/{,**/}*_test.js",
+    "jshint": "jshint -e js,json .",
+    "jscs": "jscs *.js lib/ test/ example/",
     "benchmarks": "./benchmarksman.js example/*.js",
     "browserify": "browserify --standalone benchmarksman ./lib/index.js > benchmarksman.web.js",
     "webpack": "webpack -v -c --progress -d --output-library-target var --output-library benchmarksman --entry=./lib/ benchmarksman.web.js"
@@ -18,6 +21,8 @@
     "benchmark": "^1.0.0"
   },
   "devDependencies": {
+    "jshint": "^2.5.10",
+    "jscs": "^1.8.1",
     "microtime": "^1.0.1",
     "mocha": "^1.21.5"
   }

@@ -16,11 +16,13 @@ exports.arrayClear = {
 	},
 
 	"while length, pop": function() {
-		while (this.arr.length > 0) this.arr.pop();
+		while (this.arr.length > 0) {
+			this.arr.pop();
+		}
 	},
 
 };
 
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

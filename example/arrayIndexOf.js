@@ -5,9 +5,9 @@
 exports.arrayIndexOf = {
 
 	// setup
-	"before": function () {
+	before: function() {
 
-		this.arr = Array.apply(0, Array(1000)).map(function(v, i) {
+		this.arr = Array.apply(0, new Array(1000)).map(function(v, i) {
 			return i;
 		});
 
@@ -21,15 +21,15 @@ exports.arrayIndexOf = {
 
 	},
 
-	"fn native": function () {
+	"fn native": function() {
 		this.arr.indexOf(this.arr.length - 1);
 	},
 
-	"fn for loop": function () {
+	"fn for loop": function() {
 		this.getIndexOf(this.arr, this.arr.length - 1);
 	},
 
-	"inline for loop": function () {
+	"inline for loop": function() {
 		var arr = this.arr,
 		item = this.arr.length - 1;
 		for (var i = 0, l = arr.length; i < l; i++) {
@@ -41,4 +41,4 @@ exports.arrayIndexOf = {
 };
 
 // if run directly run benchmarks
-if (!module.main) return require("benchmarksman").runner(exports);
+if (!module.main) require("benchmarksman").runner(exports);

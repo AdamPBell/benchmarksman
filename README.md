@@ -29,14 +29,18 @@ benchmarksman bench/array.js
 
 ### Programmatic
 ```javascript
-exports.Date = {
-	"#getTime()": function(){
+exports.dateGetTime = {
+
+	"#getTime()": function() {
 		new Date().getTime();
 	},
-	".now()": function(){
+
+	".now()": function() {
 		Date.now();
-	}
+	},
+
 };
+
 if (!module.main) require("benchmarksman").runner(exports);
 ```
 

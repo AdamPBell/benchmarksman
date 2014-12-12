@@ -10,7 +10,7 @@ var lib = require("./lib/"),
 module.exports = function main() {
 	var pkg = require("./package.json"),
 		args = process.argv.slice(2);
-	if (args.length === 0 || ~["-h", "--help"].indexOf(args[0])) {
+	if (args.length === 0 || ["-h", "--help"].indexOf(args[0]) !== -1) {
 		console.error("USAGE: %s [bench/slow.js]", pkg.name);
 	}
 	args.forEach(runner);
