@@ -20,10 +20,10 @@ module.exports = {
  * @param {Benchmark} bench  The `benchmark.js` test
  */
 module.exports = function reporter(bench) {
-	var ctx = this;
+	var self = this;
 	return bench
 		.on("error", function() {
-			if (ctx.file) console.error("ERROR in file: " + ctx.file);
+			if (self.file) console.error("ERROR in file: " + self.file);
 			throw bench.error;
 		})
 		.on("complete", function() {
@@ -53,7 +53,7 @@ module.exports = function runner(tests) { //jshint maxcomplexity:19
 	if (tests.before instanceof Function) tests.before.call(ctx);
 	for (var name in tests) { //jshint ignore:line
 		if (!tests.hasOwnProperty(name)) continue;
-		if (~["before", "after", "beforeEach", "afterEach"].indexOf(name)) continue;
+		if (["before", "after", "beforeEach", "afterEach"].indexOf(name) !== -1) continue;
 		var test = tests[name],
 			fullName = ctx.fullName ? ctx.fullName + " " + name : name;
 		if (test instanceof Function) {

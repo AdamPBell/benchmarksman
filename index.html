@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="app">
 
-	<head>
+<head>
+	<meta charset="utf-8" />
 
 	<title>Benchmarksman Playground</title>
 
@@ -9,6 +10,8 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 
 	<style type="text/css">
+
+		/* github icon */
 		.octicon {
 			background: url(GitHub-Mark-64px.png);
 			display: inline-block;
@@ -20,15 +23,29 @@
 		a:hover .octicon {
 			opacity: 1.0;
 		}
+
+		/* reduce the padding between columns in a row */
+		.row {
+			margin-right: 0;
+			margin-left: 0;
+		}
+		.row [class^="col-"],
+		.row [class*=" col-"] {
+			padding-right: 5px;
+			padding-left: 5px;
+		}
+
 	</style>
 
 	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 
-	<script src="//code.angularjs.org/1.3.4/angular.min.js"></script>
+	<script src="//code.angularjs.org/1.3.7/angular.min.js"></script>
 	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
 
 	<script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js"></script>
+	<script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
+
 	<script src="//angular-ui.github.io/ui-ace/dist/ui-ace.min.js"></script>
 
 	<script src="benchmarksman.web.js"></script>
@@ -86,41 +103,50 @@
 
 	<div class="container-fluid">
 
-		<h3>Playground</h3>
+		<h3>
+			Playground
+			<a class="btn btn-xs btn-primary"
+				ng-class="{disabled:isRunning}"
+				ng-click="run()"
+			>
+				<span class="glyphicon glyphicon-play"></span>
+				Run
+			</a>
+		</h3>
 
-		<form class="form" name="form">
+		<div class="row">
 
-				<div class="col-md-6">
-					<h4>
-						Tests
-						<a class="btn btn-xs btn-primary pull-right"
-							ng-class="{disabled:isRunning}"
-							ng-click="run()"
-						>
-							<span class="glyphicon glyphicon-play"></span>
-							Run
-						</a>
-					</h4>
-					<div class="form-control" style="min-height:40em"
-						name="tests"
-						ng-model="tests"
-						ui-ace="{mode:'javascript', onLoad:aceLoaded}"
-					></div>
-				</div>
+			<div class="col-md-6">
+				<h4>
+					Tests
+				</h4>
+				<div class="form-control" style="min-height:40em"
+					name="tests"
+					ng-model="tests"
+					ui-ace="{
+						mode: 'javascript',
+						require: ['ace/ext/language_tools'],
+						onLoad: aceLoaded,
+					}"
+				></div>
+			</div>
 
-				<div class="col-md-6">
-					<h4>
-						Output
-						<small ng-if="isRunning"> (running ...) </small>
-					</h4>
-					<div class="form-control" style="min-height:40em"
-						name="output"
-						ng-model="output"
-						ui-ace="{}"
-					></div>
-				</div>
+			<div class="col-md-6">
+				<h4>
+					Output
+					<small ng-if="isRunning"> (running ...) </small>
+				</h4>
+				<div class="form-control" style="min-height:40em"
+					name="output"
+					ng-model="output"
+					ui-ace="{
+						require: ['ace/ext/language_tools'],
+						onLoad: aceLoaded,
+					}"
+				></div>
+			</div>
 
-		</form>
+		</div>
 
 	</div>
 

@@ -127,9 +127,8 @@ function($scope, $timeout, $interpolate) {
 				benchmarksman.runner.call(benchCtx, tests);
 
 				$scope.isRunning = false;
-				$scope.$apply();
 
-			});
+			}, 100);
 
 		} catch (err) {
 
@@ -143,20 +142,37 @@ function($scope, $timeout, $interpolate) {
 
 	$scope.aceLoaded = function aceLoaded(editor) {
 
-		// Set cmd-enter to run
+		// disable warning about deprecated autoscroll behavior
+		editor.$blockScrolling = Infinity;
+
+		// enable simple completion
+		editor.setOptions({
+			enableBasicAutocompletion: true,
+			enableSnippets: false,
+		});
+
+		// Set Command-Enter to run
 		editor.commands.addCommand({
 			name: "run",
 			bindKey: {
+				mac: "Command-Enter",
 				win: "Ctrl-Enter",
-				mac: "Command-Enter"
 			},
-			exec: function(editor) {
+			exec: function execRun(editor) {
 				$scope.run();
 			},
-			readOnly: true // false if this command should not apply in readOnly mode
+		});
+
+		// Unset Command-L so that it selects location again
+		editor.commands.addCommand({
+			name: "location",
+			bindKey: {
+				mac: "Command-l",
+				win: "Ctrl-l",
+			},
+			exec: null, // do nothing
 		});
 
 	};
-
 
 }]);
