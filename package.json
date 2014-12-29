@@ -12,7 +12,7 @@
     "jshint": "jshint -e js,json .",
     "jscs": "jscs *.js lib/ test/ example/",
     "benchmarks": "./benchmarksman.js example/*.js",
-    "browserify": "browserify --standalone benchmarksman ./lib/index.js > benchmarksman.web.js",
+    "browserify": "browserify --standalone benchmarksman ./lib/index.js | tee benchmarksman.web.js | uglifyjs -c > benchmarksman.web.min.js",
     "webpack": "webpack -v -c --progress -d --output-library-target var --output-library benchmarksman --entry=./lib/ benchmarksman.web.js"
   },
   "author": "",
