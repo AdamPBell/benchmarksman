@@ -1,7 +1,11 @@
 {
   "name": "benchmarksman",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hit the mark with your benchmarks",
+  "author": "Rivera Group <support@riverainc.com>",
+  "contributors": [
+    "Kyle P Davis <KDavis@riverainc.com>"
+  ],
   "main": "benchmarksman.js",
   "bin": {
     "benchmarksman": "benchmarksman.js"
@@ -15,7 +19,15 @@
     "browserify": "N=benchmarksman; browserify --standalone $N ./lib/index.js | tee $N.web.js | uglifyjs -c > $N.web.min.js",
     "webpack": "N=benchmarksman; webpack -v -c --progress -d --output-library-target var --output-library $N --entry=./lib/ $N.web.js"
   },
-  "author": "",
+  "repository": {
+    "url": "git+https://github.com/RiveraGroup/benchmarksman.git#master"
+  },
+  "keywords": [
+    "benchmark",
+    "performance",
+    "mocha",
+    "test"
+  ],
   "license": "MIT",
   "dependencies": {
     "benchmark": "^1.0.0"
