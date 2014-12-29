@@ -12,8 +12,8 @@
     "jshint": "jshint -e js,json .",
     "jscs": "jscs *.js lib/ test/ example/",
     "benchmarks": "./benchmarksman.js example/*.js",
-    "browserify": "browserify --standalone benchmarksman ./lib/index.js | tee benchmarksman.web.js | uglifyjs -c > benchmarksman.web.min.js",
-    "webpack": "webpack -v -c --progress -d --output-library-target var --output-library benchmarksman --entry=./lib/ benchmarksman.web.js"
+    "browserify": "N=benchmarksman; browserify --standalone $N ./lib/index.js | tee $N.web.js | uglifyjs -c > $N.web.min.js",
+    "webpack": "N=benchmarksman; webpack -v -c --progress -d --output-library-target var --output-library $N --entry=./lib/ $N.web.js"
   },
   "author": "",
   "license": "MIT",
