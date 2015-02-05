@@ -21,4 +21,4 @@ exports.typeArray = {
 
 
 // if run directly run benchmarks
-if (!module.main) require("benchmarksman").runner(exports);
+if (!module.parent) require("benchmarksman").runner(exports);

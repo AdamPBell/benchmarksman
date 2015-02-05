@@ -40,4 +40,4 @@ exports.benchmarksman = {
 };
 
 // Mocha one-liner to make these tests self-hosted
-if (!module.main) (new(require("mocha"))()).addFile(__filename).ui("exports").run(process.exit);
+if (!module.parent) (new(require("mocha"))()).addFile(__filename).ui("exports").run(process.exit);
