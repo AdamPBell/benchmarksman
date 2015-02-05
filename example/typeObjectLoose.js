@@ -3,8 +3,8 @@
 
 
 // setup
-function Thing() {}
-var thing = new Thing();
+var Thing = function Thing() {},
+	thing = new Thing();
 
 
 // tests

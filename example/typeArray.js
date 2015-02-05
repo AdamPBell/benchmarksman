@@ -3,11 +3,19 @@
 
 
 // setup
-var arr = [];
+var arr = [],
+	objToStr = Object.prototype.toString,
+	getTypeStr = function getTypeStr2(obj) {
+		return objToStr.call(obj);
+	};
 
 
 // tests
 exports.typeArray = {
+
+	"getTypeStr (Object#toString.call)": function() {
+		getTypeStr(arr) === "[object Array]";
+	},
 
 	"instanceof check": function() {
 		arr instanceof Array;

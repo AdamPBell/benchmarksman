@@ -3,23 +3,31 @@
 
 
 // setup
-function Thing() {}
-var thing = new Thing();
+var Thing = function Thing() {},
+	thing = new Thing(),
+	objToStr = Object.prototype.toString,
+	getTypeStr = function getTypeStr2(obj) {
+		return objToStr.call(obj);
+	};
 
 
 // tests
 exports.typeIsExact = {
 
+	"getTypeStr (Object#toString.call)": function() {
+		getTypeStr(thing) === "[object Function]";
+	},
+
 	"instanceof, constructor matches": function() {
 		thing instanceof Thing && thing.constructor === Thing;
 	},
 
-	"not undefined, not null, constructor matches": function() {
-		thing !== undefined && thing !== null && thing.constructor === Thing;
-	},
-
 	"truthy, constructor matches": function() {
 		thing && thing.constructor === Thing;
+	},
+
+	"not undefined, not null, constructor matches": function() {
+		thing !== undefined && thing !== null && thing.constructor === Thing;
 	},
 
 	"typeof, not null, constructor matches": function() {
@@ -30,4 +38,4 @@ exports.typeIsExact = {
 
 
 // if run directly run benchmarks
-if (!module.main) require("benchmarksman").runner(exports);
+if (!module.parent) require("benchmarksman").runner(exports);
