@@ -17,6 +17,10 @@ exports.typeArray = {
 		getTypeStr(arr) === "[object Array]";
 	},
 
+	"Array.isArray": function() {
+		Array.isArray(arr);
+	},
+
 	"instanceof check": function() {
 		arr instanceof Array;
 	},
